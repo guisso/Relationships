@@ -235,11 +235,9 @@ namespace RelationshipsOneToOne.Tests
         public void CarteiraMotoristaEmissao10YearsBeforeNow_ValidadeIsNotValida()
         {
             DateOnly emissao = DateOnly.FromDateTime(DateTime.Now).AddYears(-10);
-            DateOnly validade = emissao.AddYears(5);
 
             CarteiraMotorista carteira = new();
             carteira.Emissao = emissao;
-            carteira.Validade = validade;
 
             Assert.False(carteira.IsValida());
         }
