@@ -1,6 +1,6 @@
 namespace RelationshipsOneToOne.Tests
 {
-    public class BasicTests
+    public class CidadadoCarteiraMotoristaBasicTests
     {
         //
         // Nome

@@ -2,7 +2,7 @@
 
 namespace RelationshipsOneToOne.Tests
 {
-    public class Relationships
+    public class CidadadoCarteiraMotoristaRelationshipsTests
     {
         [Fact]
         public void CidadaoWithCarteiraMotorista_CarteiraNotNull()
