@@ -79,7 +79,9 @@ namespace RelationshipsOneToOne.Tests
         public void NascimentoLessThan18Years_ThrowArgumentException()
         {
             Cidadao cidadao = new Cidadao();
-            cidadao.Nascimento = DateOnly.FromDateTime(DateTime.Now).AddYears(-18).AddDays(1);
+            Assert.Throws<ArgumentException>(
+                () => cidadao.Nascimento = DateOnly.FromDateTime(DateTime.Now).AddYears(-18).AddDays(1)
+             );
         }
 
         [Fact]
@@ -88,7 +90,7 @@ namespace RelationshipsOneToOne.Tests
             DateOnly idade18 = DateOnly.FromDateTime(DateTime.Now).AddYears(-18);
 
             Cidadao cidadao = new Cidadao();
-            cidadao.Nascimento = DateOnly.FromDateTime(DateTime.Now).AddYears(-18);
+            cidadao.Nascimento = idade18;
 
             Assert.Equal(idade18, cidadao.Nascimento);
         }
@@ -102,6 +104,27 @@ namespace RelationshipsOneToOne.Tests
             cidadao.Nascimento = DateOnly.FromDateTime(DateTime.Now).AddYears(-18).AddDays(-1);
 
             Assert.Equal(idade18Mais, cidadao.Nascimento);
+        }
+
+        //
+        // Categoria
+        //
+
+        [Fact]
+        public void CategoriaSize_Size5()
+        {
+            Int32 total = Enum.GetValues(typeof(Categoria)).Length;
+
+            Assert.Equal(5, total);
+        }
+
+        [Fact]
+        public void CategoriaValues_ContainsAtoE()
+        {
+            String[] expected = new[] { "A", "B", "C", "D", "E" };
+            String[] values = Enum.GetNames(typeof(Categoria));
+
+            Assert.Equal(expected, values);
         }
 
     }
