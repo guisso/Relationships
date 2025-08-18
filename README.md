@@ -1,1 +1,72 @@
-# Relationships
+---
+title: Relationships in C#
+description: Practical exercises on relationships in C#
+author: Luis Guisso
+ms.date: ago. 17, 2025
+---
+
+# Relationships in C#
+
+## Introduction
+
+I present practical exercises on one-to-one bidirectional relationships in C# validated by unit tests.
+
+Always make the UML class diagram before the implementation.
+
+## 1. Gerenciamento de Carteiras de Motorista
+
+### Contexto
+
+Um departamento de trânsito precisa gerenciar carteiras de motorista emitidas para cidadãos. Cada cidadão possui exatamente uma carteira de motorista, e cada carteira está associada a apenas um cidadão. O sistema deve registrar e consultar informações como número da carteira, data de validade e dados pessoais do cidadão.
+
+### Entidades e Relacionamento
+
+Entidade 1: Cidadão (atributos: CPF, nome {máximo de 45 caracteres}, data de nascimento {somente cidadãos com mais de 18 anos}).
+
+Entidade 2: CarteiraMotorista (atributos: número, categoria {A, B, C, D ou E}, data de emissão {'emissao', presente ou passada}, data de validade {'validade', qualquer data}). Deve conter o método isValida():Boolean que informe, se a carteira está válida (não vencida) ou inválida (vencida, ou seja, com uma data passada).
+
+Relacionamento: Um cidadão possui exatamente uma CarteiraMotorista e uma CarteiraMotorista pertence a apenas um Cidadão. O relacionamento é bidirecional.
+
+### Implementação e Testes
+
+Codifique as classes indicadas seguindo as convenções C# já abordadas em sala **empregando propriedades** e aplique seus próprios testes para validação da implementação.
+
+Após realizar seus testes, execute o teste automatizado, que foi preparado por mim, pressionando **CTRL+R, A**. Cada teste possui um nome próprio para verificação de cada aspecto solicitado.
+
+### Enumerações
+
+Valores fixos e conhecidos podem ser representados por enumerações, cujo código de exemplo é apresentado a seguir. Deve ser criado um arquivo próprio para conter a enumeração.
+
+Assim, uma propriedade que deseja ser deste tipo deve ser declarada como ```public Categoria Categoria { get; set}``` e os valores podem ser atribuídos com ```objeto.Categoria = Categoria.A;```.
+
+```cs
+using System;
+
+namespace SeuNamespaceAqui
+{
+    public enum Categoria {
+            A, B, C, D, E
+        }
+    }
+}
+```
+
+## 2. Gerenciamento de Contas Bancárias
+
+### Contexto
+
+Um banco oferece contas correntes individuais, onde cada cliente possui exatamente uma conta principal e cada conta está vinculada a apenas um cliente. O sistema deve gerenciar informações do cliente e da conta, como saldo e transações, para fins de auditoria e atendimento.
+
+### Entidades e Relacionamento
+
+Entidade 1: Cliente (atributos: CPF, nome, telefone {ex.: 5538912341234}).
+
+Entidade 2: ContaBancaria (atributos: número da conta {'numero'}, saldo {pode ser negativo até o limite máximo apresentado}, limite negativo {'limite' como valor positivo}, data de abertura {'abertura'}).
+
+Relacionamento: Um Cliente possui exatamente uma ContaBancaria e uma ContaBancaria pertence a apenas um Cliente. O relacionamento é bidirecional.
+
+### Implementação e Testes
+
+Codifique as classes indicadas seguindo as convenções C# já abordadas em sala **empregando propriedades** e aplique seus próprios testes para validação da implementação.
+
+Após realizar seus testes, execute o teste automatizado, que foi preparado por mim, pressionando **CTRL+R, A**. Cada teste possui um nome próprio para verificação de cada aspecto solicitado.
