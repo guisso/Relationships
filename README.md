@@ -69,6 +69,21 @@ Entidade 2: ContaBancaria (atributos: número da conta {'numero'}, saldo {pode se
 
 Relacionamento: Um Cliente possui exatamente uma ContaBancaria e uma ContaBancaria pertence a apenas um Cliente. O relacionamento é bidirecional.
 
+**Observações**
+
+- Todos os atributos devem ser obrigatórios, ou seja, não são permitidos nulos;
+- O CPF deve ser numérico e deve obedecer ao padrão, mas não precisa ser um CPF válido segundo as regras;
+- O nome não pode ser vazio e não pode ter mais do que 45 caracteres;
+- O número de telefone deve conter o DDI (00 ou 000), o DDD (00) e o número propriamente dito (000000000);
+- O número da conta deve conter exatamente 8 dígitos e não são permitidos zeros à esquerda;
+- Saques que deixem o saldo abaixo do limite permitido não são permitidos;
+- O limite não pode ser um valor negativo;
+- A data de abertura não pode ser futura, mas pode ser o dia atual;
+- Não pode ocorrer depósito sem que haja um saldo inicial definido, ainda que seja zero;
+- Não é permitido realizar saques sem que haja um limite já definido;
+- Mesmo que haja limite definido, não é permitido realizar saques que deixem o saldo abaixo do limite negativo;
+- Para todas as operações de saque e depósito, as exceções a serem lançadas devem ser do tipo InvalidOperationException.
+
 ### Implementação e Testes
 
 Codifique as classes indicadas seguindo as convenções C# já abordadas em sala **empregando propriedades** e aplique seus próprios testes para validação da implementação.
