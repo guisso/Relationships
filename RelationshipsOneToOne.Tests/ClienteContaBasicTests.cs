@@ -104,7 +104,7 @@ namespace RelationshipsOneToOne.Tests
         public void ContaBancariaNumeroMoreThan8Digits_ThrowArgumentException()
         {
             ContaBancaria conta = new();
-            Assert.Throws<ArgumentException>(() => conta.Numero = 999_999_999);
+            Assert.Throws<ArgumentException>(() => conta.Numero = 100_000_000);
         }
 
         [Fact]
