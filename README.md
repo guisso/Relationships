@@ -29,7 +29,13 @@ Relacionamento: Um cidadão possui exatamente uma CarteiraMotorista e uma Carteir
 
 **Observações**
 
-Todos os atributos devem ser obrigatórios. A data de validade, por padrão, é de 5 anos após a obtenção, mas pode ser modificada para casos especiais. A data de emissão não pode ser futura e a data de validade não pode ser anterior à data de emissão. A categoria deve ser uma enumeração com os valores A, B, C, D ou E. O CPF deve ser numérico e deve seguir o formato brasileiro (11 dígitos). O nome não pode exceder 45 caracteres. A data de nascimento deve ser válida e o cidadão deve ter mais de 18 anos para obter a carteira.
+- Todos os atributos devem ser obrigatórios;
+- A data de validade, por padrão, é de 5 anos após a obtenção, mas pode ser modificada para casos especiais;
+- A data de emissão não pode ser futura e a data de validade não pode ser anterior à data de emissão;
+- A categoria deve ser uma enumeração com os valores A, B, C, D ou E;
+- O CPF deve ser numérico e deve seguir o formato brasileiro (11 dígitos);
+- O nome não pode exceder 45 caracteres;
+- A data de nascimento deve ser válida e o cidadão deve ter mais de 18 anos para obter a carteira.
 
 ### Implementação e Testes
 
