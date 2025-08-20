@@ -131,6 +131,7 @@ Relacionamento: Um usuário pode ter muitos _posts_, mas um _post_ pertence a ape
 - Uma postagem não pode ser duplicada para o mesmo usuário;
 - Uma postagem não pode ser criada com conteúdo idêntico a outro post do mesmo usuário;
 - As curtidas de uma postagem não podem ser alteradas diretamente, apenas por meio do método curtir() ou descurtir(), que incrementa ou decrementa o valor, respectivamente;
+- Uma postagem não pode receber ou perder curtidas se não tiver um usuário associado;
 - As curtidas não podem ser negativas;
 - As curtidas sempre são iniciadas com zero.
 
