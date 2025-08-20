@@ -124,6 +124,7 @@ Relacionamento: Um usuário pode ter muitos _posts_, mas um _post_ pertence a ape
 - _Email_ deve conter um formato válido (pesquise soluções sem empregar IA);
 - Senha deve conter no mínimo 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial (pesquise soluções sem empregar IA);
 - A inclusão ou exclusão de objetos Post deve ser feita por meio de métodos específicos 'adicionarPost' e 'removerPost';
+- Um usuário pode ser removido de um post via método 'removerUsuario', mas a operação deve ocorrer se acionada pelo próprio usuário dono do post ou com a indicação explícita do usuário a ser removido;
 - Conteúdo deve conter o mínimo de 1 (apenas um emoji, por exemplo) e o máximo de 200 caracteres;
 - Publicação deve ser somente leitura e deve ter o valor da data e hora atual no momento da criação do post;
 - Uma postagem não pode ser criada sem que haja um usuário associado;
