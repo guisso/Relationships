@@ -4,73 +4,73 @@ namespace RelationshipsOneToOne.Tests
 {
     public class UsuarioBasicTests
     {
-        private Usuario u;
+        private Usuario _u;
 
         [Fact]
         public void UsuarioNullNome_ThrowsArgumentNullExecption() {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Nome = null; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Nome = null; });
         }
 
         [Fact]
         public void UsuarioEmptyNome_ThrowsArgumentNullExecption() {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Nome = ""; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Nome = ""; });
         }
         
         [Fact]
         public void UsuarioFullSpacesOnNome_ThrowsArgumentNullExecption() {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Nome = "   "; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Nome = "   "; });
         }
         
         [Fact]
         public void UsuarioNomeLessThan3_ThrowsArgumentExecption() {
-            u = new();
-            Assert.Throws<ArgumentException>(() => { u.Nome = "12"; });
+            _u = new();
+            Assert.Throws<ArgumentException>(() => { _u.Nome = "12"; });
         }
         
         [Fact]
         public void UsuarioNomeLessMoreThan45_ThrowsArgumentExecption() {
-            u = new();
-            Assert.Throws<ArgumentException>(() => { u.Nome = "123456789_123456789_123456789_123456789_123456"; });
+            _u = new();
+            Assert.Throws<ArgumentException>(() => { _u.Nome = "123456789_123456789_123456789_123456789_123456"; });
         }
         
         [Fact]
         public void UsuarioNomeValid_SetsNome() {
             String expected = "Ana Zaira";
 
-            u = new();
-            u.Nome = expected;
+            _u = new();
+            _u.Nome = expected;
 
-            Assert.Equal(expected, u.Nome);
+            Assert.Equal(expected, _u.Nome);
         }
 
         [Fact]
         public void UsuarioEmailNull_ThrowsArgumentNullException()
         {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Email = null; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Email = null; });
         }
 
         [Fact]
         public void UsuarioEmailEmpty_ThrowsArgumentNullException()
         {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Email = ""; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Email = ""; });
         }
         
         [Fact]
         public void UsuarioFullSpacesOnEmail_ThrowsArgumentNullException()
         {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Email = "   "; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Email = "   "; });
         }
 
         [Fact]
         public void UsuarioEmailInvalid_ThrowsFormatException()
         {
-            u = new();
+            _u = new();
             String[] invalidEmails =
             {
                 "user@",
@@ -90,43 +90,43 @@ namespace RelationshipsOneToOne.Tests
             foreach (String email in invalidEmails)
             {
                 Console.WriteLine($">> {email}");
-                Assert.Throws<FormatException>(() => { u.Email = email; });
+                Assert.Throws<FormatException>(() => { _u.Email = email; });
             }
         }
 
         [Fact]
         public void UsuarioSenhaNull_ThrowsArgumentNullException()
         {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Senha = null; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Senha = null; });
         }
         
         [Fact]
         public void UsuarioSenhaEmpty_ThrowsArgumentNullException()
         {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Senha = ""; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Senha = ""; });
         }
         
         [Fact]
         public void UsuarioFullSpacesOnSenha_ThrowsArgumentNullException()
         {
-            u = new();
-            Assert.Throws<ArgumentNullException>(() => { u.Senha = "     "; });
+            _u = new();
+            Assert.Throws<ArgumentNullException>(() => { _u.Senha = "     "; });
         }
         
         [Fact]
         public void UsuarioSenhaLessThan8_ThrowsArgumentException()
         {
-            u = new();
-            Assert.Throws<ArgumentException>(() => { u.Senha = "1!Aa2@B"; });
+            _u = new();
+            Assert.Throws<ArgumentException>(() => { _u.Senha = "1!Aa2@B"; });
         }
         
         [Fact]
         public void UsuarioSenhaWeak_ThrowsArgumentException()
         {
-            u = new();
-            Assert.Throws<ArgumentException>(() => { u.Senha = "12345678"; });
+            _u = new();
+            Assert.Throws<ArgumentException>(() => { _u.Senha = "12345678"; });
         }
         
         [Fact]
@@ -134,10 +134,10 @@ namespace RelationshipsOneToOne.Tests
         {
             String expected = "1!Aa2@Bb";
             
-            u = new();
-            u.Senha = expected;
+            _u = new();
+            _u.Senha = expected;
 
-            Assert.Equal(expected, u.Senha);
+            Assert.Equal(expected, _u.Senha);
         }
 
     }
