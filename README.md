@@ -122,6 +122,19 @@ Relacionamento: Um usuário pode ter muitos _posts_, mas um _post_ pertence a ape
 - Todos os atributos devem ser obrigatórios;
 - Nome não pode conter menos do que 3 caracteres e nem exceder 45 caracteres;
 - _Email_ deve conter um formato válido (pesquise soluções sem empregar IA);
+- Casos de testes para _Email_:
+    - "user@"
+    - "user@domain."
+    - ".user@domain"
+    - "userdomain.com"
+    - "user@domain,com"
+    - "user@domain com"
+    - "user@domain..com"
+    - "user@domain@com"
+    - "user@.domain.com"
+    - "@domain.com"
+    - "user name@domain.com"
+    - "plainstring"
 - Senha deve conter no mínimo 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial (pesquise soluções sem empregar IA);
 - A inclusão ou exclusão de objetos Post deve ser feita por meio de métodos específicos 'adicionarPost' e 'removerPost';
 - Um usuário pode ser removido de um post via método 'removerUsuario', mas a operação deve ocorrer se acionada pelo próprio usuário dono do post ou com a indicação explícita do usuário a ser removido;
