@@ -13,6 +13,9 @@ I present practical exercises on one-to-one bidirectional relationships in C# va
 
 Always make the UML class diagram before the implementation.
 
+
+
+
 ## 1. Gerenciamento de Carteiras de Motorista
 
 ### Contexto
@@ -61,6 +64,8 @@ namespace SeuNamespaceAqui
 }
 ```
 
+
+
 ## 2. Gerenciamento de Contas Bancárias
 
 ### Contexto
@@ -79,7 +84,7 @@ Relacionamento: Um Cliente possui exatamente uma ContaBancaria e uma ContaBancar
 
 - Todos os atributos devem ser obrigatórios, ou seja, não são permitidos nulos;
 - O CPF deve ser numérico e deve obedecer ao padrão, mas não precisa ser um CPF válido segundo as regras;
-- O nome não pode ser vazio e não pode ter mais do que 45 caracteres;
+- O nome não pode conter menos do que 3 caracteres e nem exceder 45 caracteres;
 - O número de telefone deve conter o DDI (00 ou 000), o DDD (00) e o número propriamente dito (000000000);
 - O número da conta deve conter exatamente 8 dígitos e não são permitidos zeros à esquerda;
 - Saques que deixem o saldo abaixo do limite permitido não são permitidos;
@@ -97,29 +102,36 @@ Codifique as classes indicadas seguindo as convenções C# já abordadas em sala **
 Após realizar seus testes, execute o teste automatizado, que foi preparado por mim, pressionando **CTRL+R, A**. Cada teste possui um nome próprio para verificação de cada aspecto solicitado.
 
 
-## 3. Gerenciamento de Carteiras de Motorista
+
+## 3. Gerenciamento de Redes Sociais
 
 ### Contexto
 
-Um departamento de trânsito precisa gerenciar carteiras de motorista emitidas para cidadãos. Cada cidadão possui exatamente uma carteira de motorista, e cada carteira está associada a apenas um cidadão. O sistema deve registrar e consultar informações como número da carteira, data de validade e dados pessoais do cidadão.
+Uma rede social gerencia usuários e os posts que eles criam para exibir _feeds_ e interações. Cada usuário pode criar múltiplos _posts_, mas cada _post_ é criado por apenas um usuário. O sistema deve filtrar conteúdo e analisar engajamento.
 
 ### Entidades e Relacionamento
 
-Entidade 1: Cidadão (atributos: CPF, nome {máximo de 45 caracteres}, data de nascimento {somente cidadãos com mais de 18 anos}).
+Entidade 1: Usuario (atributos: nome, email e senha).
 
-Entidade 2: CarteiraMotorista (atributos: número, categoria {A, B, C, D ou E}, data de emissão {'emissao', presente ou passada}, data de validade {'validade', qualquer data}). Deve conter o método isValida():Boolean que informe, se a carteira está válida (não vencida) ou inválida (vencida, ou seja, com uma data passada).
+Entidade 2: Post (atributos: conteúdo {até 200 caracteres}, data/hora de publicação {'publicacao', readOnly} e curtidas {>= 0, readOnly}).
 
-Relacionamento: Um cidadão possui exatamente uma CarteiraMotorista e uma CarteiraMotorista pertence a apenas um Cidadão. O relacionamento é bidirecional.
+Relacionamento: Um usuário pode ter muitos _posts_, mas um _post_ pertence a apenas um usuário.
 
 **Observações**
 
 - Todos os atributos devem ser obrigatórios;
-- A data de validade, por padrão, é de 5 anos após a obtenção, mas pode ser modificada para casos especiais;
-- A data de emissão não pode ser futura e a data de validade não pode ser anterior à data de emissão;
-- A categoria deve ser uma enumeração com os valores A, B, C, D ou E;
-- O CPF deve ser numérico e deve seguir o formato brasileiro (11 dígitos);
-- O nome não pode conter menos do que 3 caracteres e nem exceder 45 caracteres;
-- A data de nascimento deve ser válida e o cidadão deve ter mais de 18 anos para obter a carteira.
+- Nome não pode conter menos do que 3 caracteres e nem exceder 45 caracteres;
+- _Email_ deve conter um formato válido (pesquise soluções sem empregar IA);
+- Senha deve conter no mínimo 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial (pesquise soluções sem empregar IA);
+- A inclusão ou exclusão de objetos Post deve ser feita por meio de métodos específicos 'adicionarPost' e 'removerPost';
+- Conteúdo deve conter o mínimo de 1 (apenas um emoji, por exemplo) e o máximo de 200 caracteres;
+- Publicação deve ser somente leitura e deve ter o valor da data e hora atual no momento da criação do post;
+- Uma postagem não pode ser criada sem que haja um usuário associado;
+- Uma postagem não pode ser duplicada para o mesmo usuário;
+- Uma postagem não pode ser criada com conteúdo idêntico a outro post do mesmo usuário;
+- As curtidas de uma postagem não podem ser alteradas diretamente, apenas por meio do método curtir() ou descurtir(), que incrementa ou decrementa o valor, respectivamente;
+- As curtidas não podem ser negativas;
+- As curtidas sempre são iniciadas com zero.
 
 ### Implementação e Testes
 
