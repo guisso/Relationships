@@ -40,6 +40,13 @@ namespace RelationshipsOneToOne.Tests
         }
 
         [Fact]
+        public void ClienteNomeLessThan3_ThrowsArgumentException()
+        {
+            Cliente cliente = new();
+            Assert.Throws<ArgumentException>(() => cliente.Nome = "12");
+        }
+        
+        [Fact]
         public void ClienteNomeLongerThan45_ThrowsArgumentException()
         {
             Cliente cliente = new();

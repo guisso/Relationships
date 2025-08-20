@@ -95,3 +95,34 @@ Relacionamento: Um Cliente possui exatamente uma ContaBancaria e uma ContaBancar
 Codifique as classes indicadas seguindo as convenções C# já abordadas em sala **empregando propriedades** e aplique seus próprios testes para validação da implementação.
 
 Após realizar seus testes, execute o teste automatizado, que foi preparado por mim, pressionando **CTRL+R, A**. Cada teste possui um nome próprio para verificação de cada aspecto solicitado.
+
+
+## 3. Gerenciamento de Carteiras de Motorista
+
+### Contexto
+
+Um departamento de trânsito precisa gerenciar carteiras de motorista emitidas para cidadãos. Cada cidadão possui exatamente uma carteira de motorista, e cada carteira está associada a apenas um cidadão. O sistema deve registrar e consultar informações como número da carteira, data de validade e dados pessoais do cidadão.
+
+### Entidades e Relacionamento
+
+Entidade 1: Cidadão (atributos: CPF, nome {máximo de 45 caracteres}, data de nascimento {somente cidadãos com mais de 18 anos}).
+
+Entidade 2: CarteiraMotorista (atributos: número, categoria {A, B, C, D ou E}, data de emissão {'emissao', presente ou passada}, data de validade {'validade', qualquer data}). Deve conter o método isValida():Boolean que informe, se a carteira está válida (não vencida) ou inválida (vencida, ou seja, com uma data passada).
+
+Relacionamento: Um cidadão possui exatamente uma CarteiraMotorista e uma CarteiraMotorista pertence a apenas um Cidadão. O relacionamento é bidirecional.
+
+**Observações**
+
+- Todos os atributos devem ser obrigatórios;
+- A data de validade, por padrão, é de 5 anos após a obtenção, mas pode ser modificada para casos especiais;
+- A data de emissão não pode ser futura e a data de validade não pode ser anterior à data de emissão;
+- A categoria deve ser uma enumeração com os valores A, B, C, D ou E;
+- O CPF deve ser numérico e deve seguir o formato brasileiro (11 dígitos);
+- O nome não pode conter menos do que 3 caracteres e nem exceder 45 caracteres;
+- A data de nascimento deve ser válida e o cidadão deve ter mais de 18 anos para obter a carteira.
+
+### Implementação e Testes
+
+Codifique as classes indicadas seguindo as convenções C# já abordadas em sala **empregando propriedades** e aplique seus próprios testes para validação da implementação.
+
+Após realizar seus testes, execute o teste automatizado, que foi preparado por mim, pressionando **CTRL+R, A**. Cada teste possui um nome próprio para verificação de cada aspecto solicitado.
