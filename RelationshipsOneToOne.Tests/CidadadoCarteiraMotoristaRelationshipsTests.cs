@@ -46,7 +46,7 @@ namespace RelationshipsOneToOne.Tests
             CarteiraMotorista carteira = CreateCarteiraMotorista();
             Cidadao cidadao = CreateCidadao(carteira);
 
-            Assert.Equal("Ana Zaira", carteira.Cidadao.Nome);
+            Assert.Equal("Ana Zaira", carteira.Cidadao?.Nome);
         }
 
         // Util methods
